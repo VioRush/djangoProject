@@ -1,0 +1,17 @@
+{% extends 'mainapp/base.html' %}
+
+{% block title %}
+    <h2> Adding a comment </h2>
+{% endblock %}
+
+{% block content %}
+            {% if comment %}
+                <h3>Your comment has been added.</h3>
+            {% else %}
+                <h3> New comment </h3>
+                <form method="post" class="post-form">{% csrf_token %}
+                        {{ form.as_p }}
+                    <button type="submit" class="save btn btn-default">Save</button>
+                </form>
+            {% endif %}
+{% endblock %}

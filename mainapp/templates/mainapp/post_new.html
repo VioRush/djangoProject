@@ -1,0 +1,22 @@
+{% extends 'mainapp/base.html' %}
+
+<head>
+     {% load static %}
+    <link rel="stylesheet" href="{% static 'mainapp/post_new.css' %}">
+</head>
+
+{% block title %}
+    <h2> Adding a post </h2>
+{% endblock %}
+
+{% block content %}
+   <div class="title">
+        <h3 class="header_new_post"> New post </h3>
+   </div>
+    <form method="post" enctype="multipart/form-data" class="post-form">{% csrf_token %}
+                {{ form.media }}
+                {{ form.as_p }}
+        <h5>*Enter the password, if status = Private</h5>
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+{% endblock %}

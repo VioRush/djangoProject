@@ -1,0 +1,42 @@
+{% extends 'mainapp/base.html' %}
+
+{%  block content %}
+        <!-- MAIN CONTAINER WITH 3 SHORTS OF ARTICLES -->
+        <section class="articles">
+            <h2 class="section_label">POSTS</h2>
+
+            {%  for post in posts %}
+                <h3>
+                    <a href="{% url 'mainapp:post_detail' post.id %}">{{ post.title }}</a>
+                </h3>
+            {% endfor %}
+         <!--   <article class="short_article">
+                <h3 class="articles_headers">
+                    <a class = "" href = "{{ post.get_absolute_url }}">
+                        {{ post.title }}
+                    </a>
+                </h3>
+
+                <p>
+                    Published {{ post.publish }} by {{ post.author }}
+                </p>
+
+                <p>
+                    {{ post.body|truncatewords:30|linebreaks }}
+                </p>
+            </article> -->
+<!--
+            <article class="short_article">
+                <h3 class="articles_headers">Post title</h3>
+                <p>Lorem ipsum, sample text of the article.</p>
+            </article>
+
+            <article class="short_article">
+                <h3 class="articles_headers">Post title</h3>
+                <p>Lorem ipsum, sample text of the article.</p>
+            </article>
+
+
+-->
+        </section>
+{%  endblock %}

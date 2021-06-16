@@ -1,0 +1,71 @@
+:root
+{
+    /*COLORS*/
+    --dark_blue: cornflowerblue;
+    --gray: gray;
+
+    /*FONTS*/
+    --title_size: 40px;
+     --headers_font: 'Lato';
+}
+
+.title
+{
+    text-align: center;
+    margin: 15px;
+}
+
+.header_new_post
+{
+    color: var(--dark_blue);
+    font-size: var(--title_size);
+    font-family: var(--headers_font);
+    font-variant: small-caps;
+}
+
+
+.post-form input[type=text], textarea
+{
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0px;
+    border: 2px solid var(--gray);
+    border-radius: 5px;
+}
+
+.post-form input[type=text], textarea:focus
+{
+    border-color: var(--dark_blue);
+}
+
+.post-form select
+{
+    width: 30%;
+    margin: 10px 0px;
+    padding: 10px;
+    border: 2px solid var(--gray);
+    border-radius: 5px;
+    background-color: var(--color_light_blue);
+    color: #555555;
+}
+
+.post-form button /*zmiana*/
+{
+    display: block;
+    width: 15%;
+    background-color: cornflowerblue;
+    color: var(--color_white);
+    padding: 10px 30px;
+    margin: 10px 0;
+    transition: .5s;
+    font-family: var(--headers_font);
+    font-weight: bold;
+    font-variant: small-caps;
+    border: none;
+}
+
+.post-form button:hover
+{
+    transform: scale(1.2);
+    background-color: var(--color_blue);
+}

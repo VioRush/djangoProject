@@ -1,0 +1,43 @@
+{% extends 'mainapp/base.html' %}
+
+{% block content %}
+
+    <section>
+            <form method=POST action="{% url 'mainapp:searching' %}">
+                {% csrf_token %}
+               <label> Searching a post: <input type="search" placeholder="Search a post..." name = "searched" ></label>
+                <button type="submit">Search</button>
+            </form>
+    </section>
+
+    {% if searched %}
+        <p> Searching <b>{{ searched }}</b> </p>
+        {% for post in posts %}
+
+            <article class="short_article">
+
+                <h3 class="articles_headers">
+                    <a href="{% url 'mainapp:post_detail' post.id %}">{{ post.title }}</a>
+                </h3>
+
+                  <!--   <p>
+                         {{ post.status }}
+                     </p> -->
+
+                     <p>
+                        Published {{ post.publish }} by {{ post.author }}
+                    </p>
+
+                    <p>
+                        {{ post.body|truncatewords:30|linebreaks }}
+                    </p>
+
+                </article>
+
+        {%  endfor %}
+
+    {% else %}
+        <p> Error! You wrote wrong phrase. </p>
+    {% endif %}
+
+{% endblock %}

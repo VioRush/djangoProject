@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+
+    <!-- STYLESHEETS -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'mainapp/base.css' %}">
+    <link rel="stylesheet" href="{% static 'mainapp/home.css' %}">
+
+</head>
+
+<body>
+    <main class = "container">
+        <!-- TEXT BANNER AT TOP OF THE SITE -->
+        <header class="banner">
+            <h1>
+                <a class="home_link" href="{% url 'mainapp:index'  %}">
+                    <img src="{% static "images/img_1.png" %}" alt="BLOG" /> </a>
+
+            </h1>
+        </header>
+
+        <!-- NAVIGATION BAR -->
+        <nav class="navigation">
+            <div>
+                <a class="nav_links" href="{% url 'mainapp:post_list'  %}">HOME</a>   <!-- przekierowanie na listu postow np blog/posts -->
+            </div>
+            <div>
+                <a class="nav_links" href="base.html">LOGOWANIE</a>   <!-- przekierowanie na dodanie postu np blog/add_post -->
+            </div>
+            <div>
+                <a class="nav_links" href="base.html">DODANIE POSTU</a>    <!-- przekierowanie na logowaie np blog/log_in-->
+            </div>
+        </nav>
+
+        <!-- MAIN CONTAINER WITH 3 SHORTS OF ARTICLES -->
+        <section class="articles">
+
+            {% block content %}
+                Welcome to out blog. Nice to see you there!
+            {% endblock %}
+
+
+            <!-- //kod do posta
+                <article class="single_article">
+                    <h2 class="articles_headers">Post title</h2>
+                    <p>Lorem ipsum, sample text of the article.</p>
+                </article>
+
+                <section class="comments">
+                    <h3 class="articles_headers">Comments</h3>
+                    <div class="single_comment">
+                        <h4 class="nicknames">Guest Nickname</h4>
+                        <p>
+                            Hello, nice post.
+                        </p>
+                    </div>
+
+                    <div class="single_comment">
+                        <h4 class="nicknames">Guest Nickname</h4>
+                        <p>
+                            Very good!
+                        </p>
+                    </div>
+
+                </section>
+
+            -->
+        </section>
+
+        <!-- FOOTER - THE END OF THE SITE WIT AUTHORS, SOCIALS, COPYRIGHT ETC. -->
+        <footer class="footer">
+            <p> 2021 &copy All rights are reserved!</p>
+        </footer>
+    </main>
+
+</body>
+</html>

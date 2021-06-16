@@ -1,0 +1,18 @@
+{% extends 'mainapp/base.html' %}
+
+<head>
+     {% load static %}
+    <link rel="stylesheet" href="{% static 'mainapp/post_new.css' %}">
+</head>
+
+{% block content %}
+   <div class="title">
+        <h2> You haven't the permission to see the post! </h2>
+   </div>
+    <h4> Write the password to get the access to post </h4>
+    <form method="post" class="post-form" >
+                {{ form.as_p }}
+                 {% csrf_token %}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+{% endblock %}

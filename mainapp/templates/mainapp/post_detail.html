@@ -1,0 +1,70 @@
+{% extends 'mainapp/base.html' %}
+
+{% block title %}
+    {{ post.title }}
+{% endblock %}
+
+{% block content %}
+
+    <article class="single_article">
+
+        <h2 class="articles_headers">
+            {{ post.title }}
+        </h2>
+
+        <p>
+            Published {{ post.publish }} by {{ post.author }}
+        </p>
+
+        <p>
+            {{ post.body|linebreaks }}
+        </p>
+
+    </article>
+
+    <section class="images">
+
+     <!--  <h3 class="articles_headers">Comments </h3> -->
+
+         {%  for image in images %}
+
+            <div class="single_image">
+
+                <p>
+                    {{ image.image }}
+                </p>
+            </div>
+         {% empty %}
+  		    <p>
+                There are no images yet.
+            </p>
+         {% endfor %}
+    </section>
+
+    <section class="comments">
+
+        <h4 class="articles_headers">Comments</h4>
+
+         {% for comment in comments %}
+
+            <div class="single_comment">
+
+                <p>
+                    Comment {{ forloop.counter }}
+                    by  <h5 class="nicknames">{{ comment.name }} </h5>
+      		         {{ comment.publish }}
+                </p>
+
+                <p>
+                    {{ comment.body|linebreaks }}
+                </p>
+            </div>
+
+         {% empty %}
+  		    <p>
+                There are no comments yet.
+            </p>
+         {% endfor %}
+    </section>
+
+{% endblock %}

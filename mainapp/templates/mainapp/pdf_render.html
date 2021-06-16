@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta charset="UTF-8">
+        <title>PDF render post</title>
+
+        <style type="text/css">
+
+              body
+              {
+                  font-family: "Times New Roman";
+                  font-size: 12px;
+              }
+
+              .articles_headers
+              {
+                  text-align: center;
+                  font-family: 'Georgia';
+                  font-size: 24px;
+                  color: #9BBCE4;
+              }
+
+              .subtext
+              {
+                  color: #555555;
+                  text-align: center;
+              }
+
+        </style>
+    </head>
+
+    <body>
+        <main class = "container">
+            <section class="articles">
+
+                {% block content %}
+
+                    <article class="single_article">
+
+                        <h2 class="articles_headers">
+                           <b> {{ post.title }} </b>
+                        </h2>
+
+                        <em class="subtext">
+                            Published {{ post.publish }} by {{ post.author }}
+                        </em>
+
+                        <hr />
+
+                        <p>
+                            {{ post.body|linebreaks }}
+                        </p>
+
+                    </article>
+
+                {% endblock %}
+
+            </section>
+        </main>
+    </body>
+</html>
